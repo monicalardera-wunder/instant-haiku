@@ -6,7 +6,6 @@
   <title>Instant Haiku — Wundercamera Lab</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --bg: #faf9f7;
       --text: #1a1a1a;
@@ -16,7 +15,6 @@
       --border-hover: rgba(0,0,0,0.25);
       --card-bg: #0e0e0e;
     }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -27,178 +25,38 @@
       justify-content: center;
       padding: 3rem 1.25rem 4rem;
     }
-
     .container { width: 100%; max-width: 480px; }
-
-    .eyebrow {
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      color: var(--text-tertiary);
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    h1 {
-      font-size: 26px;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.25rem;
-    }
-
-    .subtitle {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 2.5rem;
-      line-height: 1.5;
-    }
-
+    .eyebrow { font-size: 10px; letter-spacing: 0.16em; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 0.5rem; }
+    h1 { font-size: 26px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 0.25rem; }
+    .subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.5; }
     .input-group { margin-bottom: 1.1rem; }
-
-    label {
-      display: block;
-      font-size: 11px;
-      color: var(--text-secondary);
-      letter-spacing: 0.05em;
-      margin-bottom: 6px;
-    }
-
-    input[type=text] {
-      width: 100%;
-      padding: 11px 14px;
-      font-size: 16px;
-      font-family: inherit;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: #fff;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.15s;
-    }
-
+    label { display: block; font-size: 11px; color: var(--text-secondary); letter-spacing: 0.05em; margin-bottom: 6px; }
+    input[type=text] { width: 100%; padding: 11px 14px; font-size: 16px; font-family: inherit; border: 1px solid var(--border); border-radius: 8px; background: #fff; color: var(--text); outline: none; transition: border-color 0.15s; }
     input[type=text]:focus { border-color: var(--border-hover); }
-
-    .btn {
-      width: 100%;
-      margin-top: 1.5rem;
-      padding: 12px;
-      font-size: 15px;
-      font-family: inherit;
-      cursor: pointer;
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text);
-      transition: background 0.15s;
-      letter-spacing: 0.01em;
-    }
-
+    .btn { width: 100%; margin-top: 1.5rem; padding: 12px; font-size: 15px; font-family: inherit; cursor: pointer; background: transparent; border: 1px solid var(--border); border-radius: 8px; color: var(--text); transition: background 0.15s; }
     .btn:hover { background: rgba(0,0,0,0.04); }
     .btn:disabled { opacity: 0.35; cursor: not-allowed; }
-
-    .error {
-      font-size: 13px;
-      color: #b94040;
-      margin-top: 0.75rem;
-      display: none;
-    }
-
-    /* HAIKU CARD */
-    .haiku-card {
-      display: none;
-      margin-top: 2.5rem;
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 2.5rem 2rem 2rem;
-      position: relative;
-    }
-
-    .card-eyebrow {
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      color: #444;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-    }
-
-    .verses {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 20px;
-      font-style: italic;
-      line-height: 2.1;
-      color: #f0ede6;
-      white-space: pre-line;
-    }
-
-    .card-divider {
-      width: 28px;
-      height: 1px;
-      background: #2a2a2a;
-      margin: 1.5rem 0;
-    }
-
-    .card-caption {
-      font-size: 12px;
-      color: #555;
-      letter-spacing: 0.06em;
-      font-style: italic;
-    }
-
-    .card-words {
-      position: absolute;
-      bottom: 1.25rem;
-      right: 1.5rem;
-      font-size: 9px;
-      color: #2e2e2e;
-      letter-spacing: 0.1em;
-    }
-
-    /* LOADING */
+    .error { font-size: 13px; color: #b94040; margin-top: 0.75rem; display: none; }
+    .haiku-card { display: none; margin-top: 2.5rem; background: var(--card-bg); border-radius: 12px; padding: 2.5rem 2rem 2rem; position: relative; }
+    .card-eyebrow { font-size: 9px; letter-spacing: 0.2em; color: #444; text-transform: uppercase; margin-bottom: 2rem; }
+    .verses { font-family: Georgia, serif; font-size: 20px; font-style: italic; line-height: 2.1; color: #f0ede6; white-space: pre-line; }
+    .card-divider { width: 28px; height: 1px; background: #2a2a2a; margin: 1.5rem 0; }
+    .card-caption { font-size: 12px; color: #555; letter-spacing: 0.06em; font-style: italic; }
+    .card-words { position: absolute; bottom: 1.25rem; right: 1.5rem; font-size: 9px; color: #2e2e2e; letter-spacing: 0.1em; }
     .loading { display: none; margin-top: 2rem; }
-    .loading-line {
-      height: 18px;
-      background: #e8e6e2;
-      border-radius: 4px;
-      margin-bottom: 10px;
-      animation: pulse 1.3s ease-in-out infinite;
-    }
+    .loading-line { height: 18px; background: #e8e6e2; border-radius: 4px; margin-bottom: 10px; animation: pulse 1.3s ease-in-out infinite; }
     @keyframes pulse { 0%,100%{opacity:.3} 50%{opacity:.8} }
-
-    /* ACTIONS */
-    .actions {
-      display: none;
-      gap: 8px;
-      margin-top: 1rem;
-    }
-
-    .actions .btn {
-      flex: 1;
-      margin-top: 0;
-      font-size: 13px;
-      padding: 9px;
-    }
-
-    .copy-feedback {
-      font-size: 12px;
-      color: var(--text-tertiary);
-      margin-top: 0.5rem;
-      text-align: center;
-      min-height: 18px;
-    }
-
-    @media (max-width: 480px) {
-      body { padding: 2rem 1rem 3rem; }
-      h1 { font-size: 22px; }
-      .verses { font-size: 17px; }
-    }
+    .actions { display: none; gap: 8px; margin-top: 1rem; }
+    .actions .btn { flex: 1; margin-top: 0; font-size: 13px; padding: 9px; }
+    .copy-feedback { font-size: 12px; color: var(--text-tertiary); margin-top: 0.5rem; text-align: center; min-height: 18px; }
+    @media (max-width: 480px) { body { padding: 2rem 1rem 3rem; } h1 { font-size: 22px; } .verses { font-size: 17px; } }
   </style>
 </head>
 <body>
 <div class="container">
-
   <p class="eyebrow">Wundercamera Lab</p>
   <h1>Instant Haiku</h1>
   <p class="subtitle">Tre parole. Un poema sul desiderio.</p>
-
   <div class="input-group">
     <label>Prima parola</label>
     <input type="text" id="w1" placeholder="es. nebbia" maxlength="30" />
@@ -211,16 +69,13 @@
     <label>Terza parola</label>
     <input type="text" id="w3" placeholder="es. seta" maxlength="30" />
   </div>
-
   <button class="btn" id="btn" onclick="genera()">genera il tuo haiku →</button>
   <p class="error" id="error"></p>
-
   <div class="loading" id="loading">
     <div class="loading-line" style="width:65%"></div>
     <div class="loading-line" style="width:48%"></div>
     <div class="loading-line" style="width:57%"></div>
   </div>
-
   <div class="haiku-card" id="haiku-card">
     <p class="card-eyebrow">Wundercamera Lab · Instant Haiku</p>
     <p class="verses" id="card-verses"></p>
@@ -228,20 +83,14 @@
     <p class="card-caption" id="card-caption"></p>
     <p class="card-words" id="card-words"></p>
   </div>
-
   <div class="actions" id="actions">
     <button class="btn" onclick="copia()">copia testo</button>
     <button class="btn" onclick="nuovoHaiku()">nuovo haiku</button>
   </div>
   <p class="copy-feedback" id="copy-feedback"></p>
-
 </div>
-
 <script>
-  const ANTHROPIC_API_KEY = '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';
-  let ultimoHaiku = '';
-  let ultimaCaption = '';
-  let ultimeParole = '';
+  let ultimoHaiku = '', ultimaCaption = '', ultimeParole = '';
 
   async function genera() {
     const w1 = document.getElementById('w1').value.trim();
@@ -249,28 +98,17 @@
     const w3 = document.getElementById('w3').value.trim();
     const errEl = document.getElementById('error');
     errEl.style.display = 'none';
-
-    if (!w1 || !w2 || !w3) {
-      errEl.textContent = 'Inserisci tutte e tre le parole.';
-      errEl.style.display = 'block';
-      return;
-    }
-
+    if (!w1 || !w2 || !w3) { errEl.textContent = 'Inserisci tutte e tre le parole.'; errEl.style.display = 'block'; return; }
     ultimeParole = w1 + ' · ' + w2 + ' · ' + w3;
     document.getElementById('btn').disabled = true;
     document.getElementById('haiku-card').style.display = 'none';
     document.getElementById('actions').style.display = 'none';
     document.getElementById('copy-feedback').textContent = '';
     document.getElementById('loading').style.display = 'block';
-
     const prompt = `Sei un poeta contemporaneo italiano con un'estetica malinconica, sensoriale e desiderante.
-
 L'utente ti dà tre parole: "${w1}", "${w2}", "${w3}".
-
-Scrivi un haiku in italiano (3 versi, ritmo 5-7-5 sillabe) che evochi queste tre parole. Tono malinconico, sensoriale, desiderante. Il poema deve sentirsi come una verità privata.
-
+Scrivi un haiku in italiano (3 versi, ritmo 5-7-5 sillabe) che evochi queste tre parole. Tono malinconico, sensoriale, desiderante.
 Poi scrivi UNA sola riga di caption (max 8 parole), in italiano minuscolo, come se fosse una didascalia fotografica.
-
 Rispondi SOLO con questo formato, niente altro:
 HAIKU:
 [verso 1]
@@ -278,36 +116,28 @@ HAIKU:
 [verso 3]
 CAPTION:
 [caption]`;
-
     try {
       const res = await fetch('/api/haiku', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ prompt: prompt })
-});
-
-
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt })
+      });
       if (!res.ok) throw new Error('Errore API');
-
       const data = await res.json();
       const text = data.content[0].text.trim();
-
       const haikuMatch = text.match(/HAIKU:\n([\s\S]*?)\nCAPTION:/);
       const captionMatch = text.match(/CAPTION:\n(.+)/);
-
       ultimoHaiku = haikuMatch ? haikuMatch[1].trim() : text;
       ultimaCaption = captionMatch ? captionMatch[1].trim() : '';
-
       document.getElementById('card-verses').textContent = ultimoHaiku;
       document.getElementById('card-caption').textContent = ultimaCaption;
       document.getElementById('card-words').textContent = ultimeParole;
       document.getElementById('haiku-card').style.display = 'block';
       document.getElementById('actions').style.display = 'flex';
     } catch(e) {
-      errEl.textContent = 'Errore nella generazione. Controlla la API key o riprova.';
+      errEl.textContent = 'Errore nella generazione. Riprova.';
       errEl.style.display = 'block';
     }
-
     document.getElementById('loading').style.display = 'none';
     document.getElementById('btn').disabled = false;
   }
@@ -317,8 +147,6 @@ CAPTION:
     navigator.clipboard.writeText(testo).then(() => {
       document.getElementById('copy-feedback').textContent = 'copiato ✓';
       setTimeout(() => { document.getElementById('copy-feedback').textContent = ''; }, 2500);
-    }).catch(() => {
-      document.getElementById('copy-feedback').textContent = 'Seleziona e copia il testo sulla card manualmente.';
     });
   }
 
